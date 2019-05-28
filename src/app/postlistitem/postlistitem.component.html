@@ -1,5 +1,6 @@
 <li [ngClass]="{'list-group-item':true, 'list-group-item-success':post.loveIts>0, 'list-group-item-danger':post.loveIts<0}">
-    <h2 class="card-title">{{post.title}}<small class="text-right">{{ post.create_at |date:'short'}}</small></h2>
+  <p class="h6 text-muted text-right"><small>{{post.create_at |date:'short'}}</small></p>
+  <h2 class="card-title">{{post.title}}</h2>
     <p class="card-text">{{post.content}}</p>
     <button class="btn btn-success mr-2" (click)="onLoveit()">Love it!</button>
     <button class="btn btn-danger" (click)="onDontLoveit()">Don't love it!</button>

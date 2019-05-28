@@ -15,7 +15,6 @@ export class PostlistitemComponent implements OnInit {
   post:Post;
 
   ngOnInit() {
-    this.post.loveIts=0;
   }
 
   onLoveit(){
