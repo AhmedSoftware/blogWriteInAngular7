@@ -24,14 +24,22 @@ export class PostlistitemComponent implements OnInit{
 
   ngOnInit() {
   }
-
+  /**
+   * love a content
+   */
   onLoveit(){
    this.postService.onLoveit(this.index);
   }
+  /**
+   * DO not love a content
+   */
   onDontLoveit(){
    this.postService.onDontLoveit(this.index);
   }
 
+  /**
+   * delete a content
+   */
   onDeletePost(){
     if(confirm("Voulez-vous vraimement supprimer ce post ?")){
       this.postService.onDelete(this.index);

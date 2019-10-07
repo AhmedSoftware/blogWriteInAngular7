@@ -1,14 +1,14 @@
 <div class="col-md-6 col-sm-12">
-<form>
-  <div class="titlePost form-group"> Nouveau post</div>
+<form (ngSubmit)=onSubmitPost(newPost) #newPost="ngForm">
+  <div class="titlePost"> Nouveau post</div>
   <div class="form-group">
-    <label for='inputTitle'>Titre</label>
-    <input type="text" class="form-control" id="inputTitle" aria-describedby="titleHelp" placeholder="Entrer le titre">
+    <label for='title'>Titre</label>
+    <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp" placeholder="Entrer le titre" ngModel>
   </div>
   <div class="form-group">
-      <label for='inputComment'>Contenu</label>
-      <textarea type="text" class="form-control" id="inputComment" aria-describedby="commentHelp" placeholder="Entrer le contenu"></textarea>
+      <label for='content'>Contenu</label>
+      <textarea type="text" class="form-control" id="content" name="content" aria-describedby="commentHelp" placeholder="Entrer le contenu" ngModel></textarea>
   </div>
- <button type="submit" class="btn btn-primary" (click)="onSubmitPost()">Add post</button>
+ <button type="submit" class="btn btn-primary">Add post</button>
 </form>
 </div>

@@ -4,6 +4,7 @@ import { Post } from '../postlistitem/post.model';
 export class PostService{
 
     postsSubject = new Subject<Post[]>();
+    indexPost:number;
 
     private posts=[
         {
@@ -39,6 +40,8 @@ export class PostService{
 
  onAdd(post:Post){
      this.posts.push(post);
+     this.indexPost = this.posts.indexOf(post);
+     this.posts[this.indexPost].id=this.indexPost+1;
      this.emitPostSubject();
  }
 
@@ -46,11 +49,10 @@ export class PostService{
      this.posts[index].loveIts++;
      this.emitPostSubject;
   }
+
   onDontLoveit(index:number){
       this.posts[index].loveIts--;
       this.emitPostSubject;
   }
-
-
 
 }

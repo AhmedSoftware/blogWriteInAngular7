@@ -9,11 +9,15 @@ import { NewPostComponentComponent } from './new-post-component/new-post-compone
 import { PostService } from './services/post.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { Routes, Router, RouterModule } from '@angular/router';
+import {FormsModule } from '@angular/forms';
+import { NotFoundComponent } from './not-found/not-found.component'
 
 const appRoutes:Routes=[
   {path:'posts',component:PostListComponent},
   {path:'newPost',component:NewPostComponentComponent},
-  {path:'',component:PostListComponent}
+  {path:'',component:PostListComponent},
+  {path:'not-found',component:NotFoundComponent},
+  {path:'**',redirectTo: 'not-found'}
   ];
 
 @NgModule({
@@ -22,12 +26,14 @@ const appRoutes:Routes=[
     PostListComponent,
     PostlistitemComponent,
     NewPostComponentComponent,
-    NavBarComponent
+    NavBarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
