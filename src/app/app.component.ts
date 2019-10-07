@@ -9,13 +9,11 @@ import {PostService } from './services/post.service'
 export class AppComponent implements OnInit {
   
   title = 'blog';
-  posts: any[];
-
   constructor(private postService:PostService){
   }
 
   ngOnInit(): void {
-     this.posts = this.postService.posts;
+    
   }
   
 }
