@@ -1,30 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {PostService } from './services/post.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  
   title = 'blog';
+  posts: any[];
 
-  posts=[{
-          title:"Mon premier post",
-          content:"c'est mon premier post pour l'apprentissage d'angular",
-          loveIts:1,
-          create_at:new Date()
-       },
-       {
-        title:"Mon deuxième post",
-        content:"angular est une language dynamique",
-        loveIts:-1,
-        create_at:new Date()
-     },
-     {
-      title:"Mon troisième post",
-      content:"angular est utiliser dans plusieur entreprise pour construire des sites web dynamique en parallèle avec java ee",
-      loveIts:0,
-      create_at:new Date()
-   }];
+  constructor(private postService:PostService){
+  }
 
+  ngOnInit(): void {
+     this.posts = this.postService.posts;
+  }
+  
 }

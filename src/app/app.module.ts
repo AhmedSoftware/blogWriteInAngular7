@@ -7,17 +7,27 @@ import { PostListComponent } from './post-list/post-list.component';
 import { PostlistitemComponent } from './postlistitem/postlistitem.component';
 import { NewPostComponentComponent } from './new-post-component/new-post-component.component';
 import { PostService } from './services/post.service';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { Routes, Router, RouterModule } from '@angular/router';
+
+const appRoutes:Routes=[
+  {path:'posts',component:PostListComponent},
+  {path:'newPost',component:NewPostComponentComponent},
+  {path:'',component:PostListComponent}
+  ];
 
 @NgModule({
   declarations: [
     AppComponent,
     PostListComponent,
     PostlistitemComponent,
-    NewPostComponentComponent
+    NewPostComponentComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [PostService],
   bootstrap: [AppComponent]

@@ -1,3 +1,14 @@
-<p>
-  new-post-component works!
-</p>
+<div class="col-md-6 col-sm-12">
+<form>
+  <div class="titlePost form-group"> Nouveau post</div>
+  <div class="form-group">
+    <label for='inputTitle'>Titre</label>
+    <input type="text" class="form-control" id="inputTitle" aria-describedby="titleHelp" placeholder="Entrer le titre">
+  </div>
+  <div class="form-group">
+      <label for='inputComment'>Contenu</label>
+      <textarea type="text" class="form-control" id="inputComment" aria-describedby="commentHelp" placeholder="Entrer le contenu"></textarea>
+  </div>
+ <button type="submit" class="btn btn-primary" (click)="onSubmitPost()">Add post</button>
+</form>
+</div>

@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Post } from './post.model';
+import { Subscription } from 'rxjs';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-postlistitem',
@@ -7,28 +10,31 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 
-export class PostlistitemComponent implements OnInit {
+export class PostlistitemComponent implements OnInit{
+  
 
-  constructor() { }
+  constructor(private postService:PostService) { }
   
   @Input("post")
   post:Post;
+
+  @Input("index")
+  index:number;
+
 
   ngOnInit() {
   }
 
   onLoveit(){
-    this.post.loveIts++;
+   this.postService.onLoveit(this.index);
   }
   onDontLoveit(){
-    this.post.loveIts--;
-   
+   this.postService.onDontLoveit(this.index);
   }
 
-}
-export interface Post{
-  title:string;
-  content:string;
-  loveIts:number;
-  created_at: Date;
+  onDeletePost(){
+    if(confirm("Voulez-vous vraimement supprimer ce post ?")){
+      this.postService.onDelete(this.index);
+    }
+  }
 }

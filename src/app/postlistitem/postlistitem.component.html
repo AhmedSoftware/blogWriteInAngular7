@@ -1,7 +1,7 @@
 <li [ngClass]="{'list-group-item':true, 'list-group-item-success':post.loveIts>0, 'list-group-item-danger':post.loveIts<0}">
-  <p class="h6 text-muted text-right"><small>{{post.create_at |date:'short'}}</small></p>
-  <h2 class="card-title">{{post.title}}</h2>
+  <h2 class="card-title">{{post.title}} <span class="h6 text-muted"><small style="float: right">{{post.create_at |date:'short'}}</small> </span></h2>
     <p class="card-text">{{post.content}}</p>
     <button class="btn btn-success mr-2" (click)="onLoveit()">Love it!</button>
-    <button class="btn btn-danger" (click)="onDontLoveit()">Don't love it!</button>
+    <button class="btn btn-danger mr-2" (click)="onDontLoveit()">Don't love it!</button>
+    <button class="btn btn-danger mr-2" style="float: right" (click)="onDeletePost()">Delete</button>
 </li>

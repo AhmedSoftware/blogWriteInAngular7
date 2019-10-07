@@ -5,9 +5,8 @@
          Posts
         </div>
         <div class="card-body">
-          <ul class="list-group" *ngFor="let post of posts">
-              <app-postlistitem [post]="post"></app-postlistitem>
-
+          <ul class="list-group" *ngFor="let post of posts; index as i">
+              <app-postlistitem [post]="post" [index]="i"></app-postlistitem>
             <br>
           </ul>
         </div>
